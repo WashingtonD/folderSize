@@ -5,10 +5,9 @@ use std::path::Path;
 
 use crossterm::{
     cursor,
-    event::{self, Event, KeyCode},
-    execute, queue,
-    style::{self, Stylize},
-    terminal::{self, Clear, ClearType},
+    execute,
+    style::{Stylize},
+    terminal::{self, ClearType},
 };
 
 #[derive(PartialEq, Eq, PartialOrd, Ord)]
