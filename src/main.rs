@@ -94,7 +94,11 @@ fn get_entries_info(dir_path: &str) -> io::Result<Vec<EntryInfo>> {
         if a.entry_type == b.entry_type {
             std::cmp::Ord::cmp(&b.size.unwrap_or(0), &a.size.unwrap_or(0))
         } else {
-            std::cmp::Ord::cmp(&a.entry_type, &EntryType::Directory)
+            if a.entry_type == EntryType::Directory{
+                std::cmp::Ordering::Less
+            } else{
+                std::cmp::Ordering::Greater
+            }
         }
     });
 
