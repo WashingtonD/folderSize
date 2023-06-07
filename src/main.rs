@@ -16,20 +16,6 @@ enum EntryType {
     Directory,
 }
 
-impl Iterator for &EntryType {
-    type Item = EntryType;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        match self {
-            EntryType::File => {
-                *self = &EntryType::Directory;
-                Some(EntryType::File)
-            }
-            EntryType::Directory => None,
-        }
-    }
-}
-
 struct EntryInfo {
     entry_type: EntryType,
     path: String,
