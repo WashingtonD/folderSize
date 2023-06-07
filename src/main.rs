@@ -22,10 +22,10 @@ impl Iterator for &EntryType {
     fn next(&mut self) -> Option<Self::Item> {
         match self {
             EntryType::File => {
-                *self = &EntryType::Directory;
-                Some(EntryType::File)
+                *self = &EntryType::File;
+                Some(EntryType::Directory)
             }
-            EntryType::Directory => None,
+            EntryType::File => None,
         }
     }
 }
